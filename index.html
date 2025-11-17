@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamFlix - Tu plataforma de streaming favorita</title>
+    <title>RoRoStreaming - Cuentas Premium de Netflix, Disney+, Amazon Prime y más</title>
     
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css">
@@ -17,23 +17,23 @@
 <body class="overflow-x-hidden antialiased">
     <!-- Header Section -->
     <header class="relative z-50 w-full h-24 header-bg">
-        <div class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto sm:justify-between xl:px-0">
-            <a href="/" class="relative flex items-center inline-block h-5 h-full font-black leading-none">
-                <i class="fas fa-play-circle text-4xl text-red-600"></i>
-                <span class="ml-3 text-2xl text-white">Stream<span class="text-red-600">Flix</span></span>
+        <div class="container flex items-center justify-between h-full max-w-6xl px-8 mx-auto xl:px-0">
+            <a href="/" class="relative flex items-center inline-block font-black leading-none">
+                <i class="fas fa-tv text-4xl text-red-600"></i>
+                <span class="ml-3 text-2xl text-white">RoRo<span class="text-red-600">Streaming</span></span>
             </a>
 
             <nav id="nav" class="nav-menu">
-                <a href="#" class="nav-link">Inicio</a>
-                <a href="#peliculas" class="nav-link">Películas</a>
-                <a href="#series" class="nav-link">Series</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
                 <a href="#planes" class="nav-link">Planes</a>
+                <a href="#beneficios" class="nav-link">Beneficios</a>
                 <a href="#testimonios" class="nav-link">Testimonios</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
             </nav>
 
             <div class="header-buttons">
-                <a href="#" class="btn-login">Iniciar Sesión</a>
-                <a href="#" class="btn-signup">Prueba Gratis</a>
+                <a href="#contacto" class="btn-login">Contáctanos</a>
+                <a href="#planes" class="btn-signup">Ver Planes</a>
             </div>
 
             <div id="nav-mobile-btn" class="mobile-menu-btn">
@@ -47,188 +47,197 @@
     <div class="hero-section">
         <div class="container flex flex-col items-center justify-between h-full max-w-6xl px-8 mx-auto lg:flex-row xl:px-0">
             <div class="hero-content">
-                <h1 class="hero-title">Películas, series y mucho más. Sin límites.</h1>
-                <p class="hero-subtitle">Disfruta donde quieras. Cancela cuando quieras. Miles de películas y series esperándote.</p>
-                <a href="#" class="btn-hero">
-                    <i class="fas fa-play mr-2"></i> Comienza tu prueba gratuita
+                <h1 class="hero-title">Cuentas Premium de Streaming</h1>
+                <p class="hero-subtitle">Acceso garantizado a Netflix, Disney+, Amazon Prime Video, HBO Max y más. Las mejores plataformas al mejor precio.</p>
+                <a href="#planes" class="btn-hero">
+                    <i class="fas fa-shopping-cart mr-2"></i> Ver Planes Disponibles
                 </a>
                 
-                <!-- Plataformas compatibles -->
+                <!-- Plataformas disponibles -->
                 <div class="platforms-section">
-                    <p class="platforms-title">Disponible en:</p>
-                    <div class="platforms-icons">
-                        <i class="fab fa-apple"></i>
-                        <i class="fab fa-google-play"></i>
-                        <i class="fab fa-amazon"></i>
-                        <i class="fas fa-tv"></i>
-                        <i class="fas fa-mobile-alt"></i>
+                    <p class="platforms-title">Plataformas Disponibles:</p>
+                    <div class="platforms-logos">
+                        <div class="platform-badge netflix">Netflix</div>
+                        <div class="platform-badge disney">Disney+</div>
+                        <div class="platform-badge prime">Prime Video</div>
+                        <div class="platform-badge hbo">HBO Max</div>
+                        <div class="platform-badge spotify">Spotify</div>
                     </div>
                 </div>
             </div>
             
             <div class="hero-image">
-                <div class="video-showcase">
-                    <div class="video-card-hero"></div>
+                <div class="device-mockup">
+                    <img src="https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg" alt="Streaming en dispositivos" class="mockup-img">
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- PELÍCULAS SECTION -->
-    <div id="peliculas" class="content-section">
+    <!-- SERVICIOS SECTION -->
+    <div id="servicios" class="content-section">
         <div class="container max-w-6xl mx-auto px-8">
-            <h2 class="section-title">
-                <i class="fas fa-film mr-3"></i>Películas Destacadas
+            <h2 class="section-title text-center">
+                <i class="fas fa-star mr-3"></i>Nuestros Servicios
             </h2>
-            <h3 class="section-subtitle">Lo más popular en StreamFlix</h3>
+            <h3 class="section-subtitle text-center">Cuentas premium para las mejores plataformas de streaming</h3>
             
-            <div class="videos-grid">
-                <!-- Video Card 1 -->
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-badge">4K</div>
+            <div class="services-grid">
+                <!-- Netflix -->
+                <div class="service-card netflix-card">
+                    <div class="service-icon">
+                        <i class="fas fa-film"></i>
                     </div>
-                    <div class="video-info">
-                        <h4>Acción Extrema</h4>
-                        <div class="video-meta">
-                            <span><i class="fas fa-star"></i> 4.8</span>
-                            <span>2024</span>
-                            <span>2h 15m</span>
-                        </div>
-                    </div>
+                    <h3>Netflix Premium</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> 4 pantallas simultáneas</li>
+                        <li><i class="fas fa-check"></i> Calidad 4K Ultra HD</li>
+                        <li><i class="fas fa-check"></i> Catálogo completo</li>
+                        <li><i class="fas fa-check"></i> Sin publicidad</li>
+                    </ul>
+                    <div class="service-price">Desde $5.99</div>
+                    <a href="#planes" class="service-button">Comprar Ahora</a>
                 </div>
 
-                <!-- Video Card 2 -->
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-badge">HD</div>
+                <!-- Disney+ -->
+                <div class="service-card disney-card">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
                     </div>
-                    <div class="video-info">
-                        <h4>Comedia Familiar</h4>
-                        <div class="video-meta">
-                            <span><i class="fas fa-star"></i> 4.5</span>
-                            <span>2024</span>
-                            <span>1h 45m</span>
-                        </div>
-                    </div>
+                    <h3>Disney+ Premium</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Marvel, Star Wars, Pixar</li>
+                        <li><i class="fas fa-check"></i> Hasta 4 dispositivos</li>
+                        <li><i class="fas fa-check"></i> Descargas ilimitadas</li>
+                        <li><i class="fas fa-check"></i> Contenido 4K HDR</li>
+                    </ul>
+                    <div class="service-price">Desde $4.99</div>
+                    <a href="#planes" class="service-button">Comprar Ahora</a>
                 </div>
 
-                <!-- Video Card 3 -->
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-badge">4K</div>
+                <!-- Amazon Prime Video -->
+                <div class="service-card prime-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
                     </div>
-                    <div class="video-info">
-                        <h4>Drama Épico</h4>
-                        <div class="video-meta">
-                            <span><i class="fas fa-star"></i> 4.9</span>
-                            <span>2024</span>
-                            <span>2h 30m</span>
-                        </div>
-                    </div>
+                    <h3>Amazon Prime Video</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Series y películas originales</li>
+                        <li><i class="fas fa-check"></i> 3 dispositivos simultáneos</li>
+                        <li><i class="fas fa-check"></i> Calidad Full HD</li>
+                        <li><i class="fas fa-check"></i> Envío gratis Amazon</li>
+                    </ul>
+                    <div class="service-price">Desde $6.99</div>
+                    <a href="#planes" class="service-button">Comprar Ahora</a>
                 </div>
 
-                <!-- Video Card 4 -->
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-badge">HD</div>
+                <!-- HBO Max -->
+                <div class="service-card hbo-card">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
                     </div>
-                    <div class="video-info">
-                        <h4>Ciencia Ficción</h4>
-                        <div class="video-meta">
-                            <span><i class="fas fa-star"></i> 4.7</span>
-                            <span>2024</span>
-                            <span>2h 05m</span>
-                        </div>
+                    <h3>HBO Max</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Game of Thrones y más</li>
+                        <li><i class="fas fa-check"></i> DC Universe completo</li>
+                        <li><i class="fas fa-check"></i> Sin anuncios</li>
+                        <li><i class="fas fa-check"></i> Estrenos exclusivos</li>
+                    </ul>
+                    <div class="service-price">Desde $5.99</div>
+                    <a href="#planes" class="service-button">Comprar Ahora</a>
+                </div>
+
+                <!-- Spotify -->
+                <div class="service-card spotify-card">
+                    <div class="service-icon">
+                        <i class="fas fa-music"></i>
                     </div>
+                    <h3>Spotify Premium</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Sin publicidad</li>
+                        <li><i class="fas fa-check"></i> Calidad de audio superior</li>
+                        <li><i class="fas fa-check"></i> Modo offline</li>
+                        <li><i class="fas fa-check"></i> Saltos ilimitados</li>
+                    </ul>
+                    <div class="service-price">Desde $3.99</div>
+                    <a href="#planes" class="service-button">Comprar Ahora</a>
+                </div>
+
+                <!-- Combo -->
+                <div class="service-card combo-card">
+                    <div class="popular-badge">MÁS VENDIDO</div>
+                    <div class="service-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Combo Premium</h3>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Netflix + Disney+ + Prime</li>
+                        <li><i class="fas fa-check"></i> Ahorra hasta 40%</li>
+                        <li><i class="fas fa-check"></i> Todas las ventajas</li>
+                        <li><i class="fas fa-check"></i> Soporte prioritario</li>
+                    </ul>
+                    <div class="service-price">Desde $14.99</div>
+                    <a href="#planes" class="service-button">Comprar Ahora</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- SERIES SECTION -->
-    <div id="series" class="content-section bg-gray-800">
+    <!-- BENEFICIOS SECTION -->
+    <div id="beneficios" class="benefits-section">
         <div class="container max-w-6xl mx-auto px-8">
-            <h2 class="section-title">
-                <i class="fas fa-video mr-3"></i>Series Originales
+            <h2 class="section-title text-center">
+                <i class="fas fa-shield-alt mr-3"></i>¿Por qué elegirnos?
             </h2>
-            <h3 class="section-subtitle">Contenido exclusivo que solo encontrarás aquí</h3>
-            
-            <div class="videos-grid">
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-badge">ORIGINAL</div>
+            <h3 class="section-subtitle text-center">Beneficios de comprar con RoRoStreaming</h3>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-lock"></i>
                     </div>
-                    <div class="video-info">
-                        <h4>Misterio Nocturno</h4>
-                        <div class="video-meta">
-                            <span><i class="fas fa-star"></i> 4.6</span>
-                            <span>3 temporadas</span>
-                        </div>
-                    </div>
+                    <h4>100% Seguro</h4>
+                    <p>Cuentas verificadas y garantizadas. Tu información está protegida.</p>
                 </div>
 
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-badge">ORIGINAL</div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    <div class="video-info">
-                        <h4>Aventuras Espaciales</h4>
-                        <div class="video-meta">
-                            <span><i class="fas fa-star"></i> 4.8</span>
-                            <span>2 temporadas</span>
-                        </div>
-                    </div>
+                    <h4>Entrega Inmediata</h4>
+                    <p>Recibe tus credenciales en menos de 5 minutos después de tu compra.</p>
                 </div>
 
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-badge">ORIGINAL</div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
                     </div>
-                    <div class="video-info">
-                        <h4>Romance en la Ciudad</h4>
-                        <div class="video-meta">
-                            <span><i class="fas fa-star"></i> 4.4</span>
-                            <span>1 temporada</span>
-                        </div>
-                    </div>
+                    <h4>Soporte 24/7</h4>
+                    <p>Atención al cliente disponible todos los días por WhatsApp y email.</p>
                 </div>
 
-                <div class="video-card">
-                    <div class="video-thumbnail">
-                        <div class="play-button">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-badge">ORIGINAL</div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-sync"></i>
                     </div>
-                    <div class="video-info">
-                        <h4>Crimen y Justicia</h4>
-                        <div class="video-meta">
-                            <span><i class="fas fa-star"></i> 4.9</span>
-                            <span>4 temporadas</span>
-                        </div>
+                    <h4>Garantía de Reemplazo</h4>
+                    <p>Si hay algún problema, reemplazamos tu cuenta sin costo adicional.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tag"></i>
                     </div>
+                    <h4>Mejores Precios</h4>
+                    <p>Ahorra hasta 70% comparado con suscripciones oficiales.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4>Cuentas Verificadas</h4>
+                    <p>Todas nuestras cuentas son verificadas y funcionan correctamente.</p>
                 </div>
             </div>
         </div>
@@ -238,68 +247,73 @@
     <div id="planes" class="pricing-section">
         <div class="container flex flex-col items-center h-full max-w-6xl mx-auto">
             <h2 class="section-title text-center">
-                <i class="fas fa-tags mr-3"></i>Planes para todos
+                <i class="fas fa-tags mr-3"></i>Nuestros Planes
             </h2>
-            <h3 class="section-subtitle text-center">Elige el plan perfecto para ti</h3>
+            <h3 class="section-subtitle text-center">Elige el tiempo que mejor se ajuste a tus necesidades</h3>
 
             <div class="pricing-grid">
-                <!-- Plan Básico -->
+                <!-- Plan 1 Mes -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <h3>Básico</h3>
+                        <h3>1 Mes</h3>
                         <div class="pricing-price">
-                            <span class="currency">$</span>9.99
-                            <span class="period">/mes</span>
+                            <span class="currency">$</span>5.99
                         </div>
+                        <p class="pricing-period">Por cuenta/mes</p>
                     </div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Calidad HD</li>
-                        <li><i class="fas fa-check"></i> 1 pantalla</li>
-                        <li><i class="fas fa-check"></i> Acceso móvil y tablet</li>
-                        <li><i class="fas fa-check"></i> Películas ilimitadas</li>
+                        <li><i class="fas fa-check"></i> Acceso completo 30 días</li>
+                        <li><i class="fas fa-check"></i> Entrega inmediata</li>
+                        <li><i class="fas fa-check"></i> Soporte 24/7</li>
+                        <li><i class="fas fa-check"></i> Garantía de reemplazo</li>
                     </ul>
-                    <button class="pricing-button">Elegir Plan</button>
+                    <button class="pricing-button">Comprar Ahora</button>
                 </div>
 
-                <!-- Plan Estándar -->
+                <!-- Plan 3 Meses -->
                 <div class="pricing-card featured">
-                    <div class="popular-badge">MÁS POPULAR</div>
+                    <div class="popular-badge">RECOMENDADO</div>
                     <div class="pricing-header">
-                        <h3>Estándar</h3>
+                        <h3>3 Meses</h3>
                         <div class="pricing-price">
                             <span class="currency">$</span>14.99
-                            <span class="period">/mes</span>
                         </div>
+                        <p class="pricing-period">Por cuenta (ahorra 17%)</p>
                     </div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Calidad Full HD</li>
-                        <li><i class="fas fa-check"></i> 2 pantallas</li>
-                        <li><i class="fas fa-check"></i> Descargas</li>
-                        <li><i class="fas fa-check"></i> Contenido sin anuncios</li>
-                        <li><i class="fas fa-check"></i> Series originales</li>
+                        <li><i class="fas fa-check"></i> Acceso completo 90 días</li>
+                        <li><i class="fas fa-check"></i> Entrega inmediata</li>
+                        <li><i class="fas fa-check"></i> Soporte prioritario 24/7</li>
+                        <li><i class="fas fa-check"></i> Garantía extendida</li>
+                        <li><i class="fas fa-check"></i> Descuento especial</li>
                     </ul>
-                    <button class="pricing-button">Elegir Plan</button>
+                    <button class="pricing-button">Comprar Ahora</button>
                 </div>
 
-                <!-- Plan Premium -->
+                <!-- Plan 6 Meses -->
                 <div class="pricing-card">
+                    <div class="discount-badge">-30% OFF</div>
                     <div class="pricing-header">
-                        <h3>Premium</h3>
+                        <h3>6 Meses</h3>
                         <div class="pricing-price">
-                            <span class="currency">$</span>19.99
-                            <span class="period">/mes</span>
+                            <span class="currency">$</span>24.99
                         </div>
+                        <p class="pricing-period">Por cuenta (ahorra 30%)</p>
                     </div>
                     <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Calidad 4K Ultra HD</li>
-                        <li><i class="fas fa-check"></i> 4 pantallas</li>
-                        <li><i class="fas fa-check"></i> Descargas ilimitadas</li>
-                        <li><i class="fas fa-check"></i> Audio espacial</li>
-                        <li><i class="fas fa-check"></i> Acceso anticipado</li>
-                        <li><i class="fas fa-check"></i> Soporte prioritario</li>
+                        <li><i class="fas fa-check"></i> Acceso completo 180 días</li>
+                        <li><i class="fas fa-check"></i> Entrega inmediata</li>
+                        <li><i class="fas fa-check"></i> Soporte VIP 24/7</li>
+                        <li><i class="fas fa-check"></i> Garantía premium</li>
+                        <li><i class="fas fa-check"></i> Reemplazos ilimitados</li>
+                        <li><i class="fas fa-check"></i> Mejor precio garantizado</li>
                     </ul>
-                    <button class="pricing-button">Elegir Plan</button>
+                    <button class="pricing-button">Comprar Ahora</button>
                 </div>
+            </div>
+
+            <div class="pricing-note">
+                <p><i class="fas fa-info-circle"></i> Los precios varían según la plataforma. Combos disponibles con descuentos adicionales.</p>
             </div>
         </div>
     </div>
@@ -308,8 +322,9 @@
     <div id="testimonios" class="testimonials-section">
         <div class="container max-w-6xl mx-auto">
             <h2 class="section-title text-center">
-                <i class="fas fa-comments mr-3"></i>Lo que dicen nuestros usuarios
+                <i class="fas fa-comments mr-3"></i>Lo que dicen nuestros clientes
             </h2>
+            <h3 class="section-subtitle text-center">Miles de clientes satisfechos con nuestro servicio</h3>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
@@ -320,12 +335,12 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"La mejor plataforma de streaming que he usado. Contenido increíble y calidad superior."</p>
+                    <p class="testimonial-text">"Excelente servicio! Compré Netflix y funciona perfecto. La entrega fue súper rápida y el soporte muy amable."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">MS</div>
+                        <div class="author-avatar">MG</div>
                         <div>
-                            <h4>María Silva</h4>
-                            <p>Usuario Premium</p>
+                            <h4>María González</h4>
+                            <p>Cliente desde hace 6 meses</p>
                         </div>
                     </div>
                 </div>
@@ -338,12 +353,12 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Series originales espectaculares. Vale cada centavo del plan premium."</p>
+                    <p class="testimonial-text">"Los mejores precios del mercado. Llevo comprando combos hace 1 año y nunca he tenido problemas. 100% recomendado."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">JR</div>
                         <div>
                             <h4>Juan Rodríguez</h4>
-                            <p>Usuario desde 2023</p>
+                            <p>Cliente VIP</p>
                         </div>
                     </div>
                 </div>
@@ -356,13 +371,113 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Excelente servicio al cliente y una biblioteca de contenido enorme. 100% recomendado."</p>
+                    <p class="testimonial-text">"Compré el combo de 6 meses y estoy muy feliz. Ahorro muchísimo y el servicio es impecable. Gracias RoRoStreaming!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">AP</div>
                         <div>
                             <h4>Ana Pérez</h4>
-                            <p>Plan Familiar</p>
+                            <p>Cliente frecuente</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACTO SECTION -->
+    <div id="contacto" class="contact-section">
+        <div class="container max-w-4xl mx-auto px-8">
+            <h2 class="section-title text-center">
+                <i class="fas fa-envelope mr-3"></i>Contáctanos
+            </h2>
+            <h3 class="section-subtitle text-center">¿Tienes alguna pregunta? Estamos aquí para ayudarte</h3>
+
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h4>WhatsApp</h4>
+                    <p>+593 99 999 9999</p>
+                    <a href="https://wa.me/593999999999" class="contact-button" target="_blank">
+                        <i class="fab fa-whatsapp mr-2"></i>Enviar Mensaje
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email</h4>
+                    <p>info@rorostreaming.com</p>
+                    <a href="mailto:info@rorostreaming.com" class="contact-button">
+                        <i class="fas fa-envelope mr-2"></i>Enviar Email
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fab fa-instagram"></i>
+                    <h4>Instagram</h4>
+                    <p>@rorostreaming</p>
+                    <a href="https://instagram.com" class="contact-button" target="_blank">
+                        <i class="fab fa-instagram mr-2"></i>Seguir
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="faq-section">
+        <div class="container max-w-4xl mx-auto px-8">
+            <h2 class="section-title text-center">
+                <i class="fas fa-question-circle mr-3"></i>Preguntas Frecuentes
+            </h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-down"></i>
+                        <h4>¿Las cuentas son originales?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, todas nuestras cuentas son 100% originales y verificadas. Funcionan en todos los dispositivos compatibles con cada plataforma.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-down"></i>
+                        <h4>¿Cuánto tiempo tarda la entrega?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>La entrega es inmediata. Una vez confirmado el pago, recibirás tus credenciales en menos de 5 minutos por email o WhatsApp.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-down"></i>
+                        <h4>¿Qué métodos de pago aceptan?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Aceptamos transferencias bancarias, PayPal, tarjetas de crédito/débito y pagos en efectivo en puntos autorizados.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-down"></i>
+                        <h4>¿Ofrecen garantía?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, ofrecemos garantía en todas nuestras cuentas. Si tienes algún problema, reemplazamos la cuenta sin costo adicional.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-chevron-down"></i>
+                        <h4>¿Puedo compartir la cuenta?</h4>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Depende del plan. Las cuentas Premium permiten múltiples pantallas según lo especificado en cada servicio.</p>
                     </div>
                 </div>
             </div>
@@ -375,47 +490,54 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <i class="fas fa-play-circle text-4xl text-red-600"></i>
-                        <span>Stream<span class="text-red-600">Flix</span></span>
+                        <i class="fas fa-tv text-4xl text-red-600"></i>
+                        <span>RoRo<span class="text-red-600">Streaming</span></span>
                     </div>
-                    <p>Tu plataforma de streaming favorita con miles de películas y series.</p>
+                    <p>Tu mejor opción para disfrutar de las mejores plataformas de streaming a precios increíbles.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-links">
                     <div>
-                        <h4>Producto</h4>
-                        <a href="#">Películas</a>
-                        <a href="#">Series</a>
-                        <a href="#">Documentales</a>
-                        <a href="#">Originales</a>
+                        <h4>Servicios</h4>
+                        <a href="#servicios">Netflix</a>
+                        <a href="#servicios">Disney+</a>
+                        <a href="#servicios">Amazon Prime</a>
+                        <a href="#servicios">HBO Max</a>
+                        <a href="#servicios">Spotify</a>
                     </div>
                     <div>
-                        <h4>Compañía</h4>
-                        <a href="#">Sobre nosotros</a>
-                        <a href="#">Carreras</a>
-                        <a href="#">Prensa</a>
-                        <a href="#">Blog</a>
+                        <h4>Información</h4>
+                        <a href="#beneficios">Beneficios</a>
+                        <a href="#planes">Planes</a>
+                        <a href="#testimonios">Testimonios</a>
+                        <a href="#contacto">Contacto</a>
                     </div>
                     <div>
-                        <h4>Soporte</h4>
-                        <a href="#">Centro de ayuda</a>
-                        <a href="#">Términos de uso</a>
-                        <a href="#">Privacidad</a>
-                        <a href="#">Contacto</a>
+                        <h4>Legal</h4>
+                        <a href="#">Términos de Servicio</a>
+                        <a href="#">Política de Privacidad</a>
+                        <a href="#">Política de Reembolso</a>
+                        <a href="#">FAQ</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 StreamFlix. Todos los derechos reservados.</p>
+                <p>&copy; 2024 RoRoStreaming. Todos los derechos reservados.</p>
+                <p class="footer-disclaimer">Este sitio no está afiliado con Netflix, Disney+, Amazon Prime Video, HBO Max o Spotify. Son marcas registradas de sus respectivos propietarios.</p>
             </div>
         </div>
     </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/593999999999" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Tu JavaScript -->
     <script src="src/js/main.js"></script>

@@ -1,3 +1,10 @@
+// ========================================
+// ROROSTREAMING - MAIN JAVASCRIPT
+// ========================================
+
+// ========================================
+// MOBILE MENU TOGGLE
+// ========================================
 const mobileMenuBtn = document.getElementById('nav-mobile-btn');
 const nav = document.getElementById('nav');
 
@@ -37,7 +44,11 @@ window.addEventListener('scroll', () => {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        
+        if (targetId === '#') return;
+        
+        const target = document.querySelector(targetId);
         
         if (target) {
             const headerOffset = 100;
@@ -59,20 +70,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ========================================
-// VIDEO CARD INTERACTIONS
+// SERVICE BUTTON INTERACTIONS
 // ========================================
-const videoCards = document.querySelectorAll('.video-card');
+const serviceButtons = document.querySelectorAll('.service-button');
 
-videoCards.forEach(card => {
-    card.addEventListener('click', function() {
-        // Aquí puedes agregar la lógica para abrir un modal con el video
-        console.log('Video card clicked!');
+serviceButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const serviceName = this.closest('.service-card').querySelector('h3').textContent;
         
-        // Ejemplo de animación al hacer clic
-        this.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            this.style.transform = '';
-        }, 200);
+        // Mostrar mensaje de contacto
+        showContactMessage(serviceName);
     });
 });
 
@@ -84,10 +92,35 @@ const pricingButtons = document.querySelectorAll('.pricing-button');
 pricingButtons.forEach(button => {
     button.addEventListener('click', function() {
         const plan = this.closest('.pricing-card').querySelector('.pricing-header h3').textContent;
-        alert(`¡Gracias por elegir el plan ${plan}! Redirigiendo al proceso de pago...`);
         
-        // Aquí puedes agregar la lógica de redirección o abrir un formulario
-        console.log(`Plan seleccionado: ${plan}`);
+        // Redirigir a WhatsApp o mostrar formulario
+        const message = `Hola! Estoy interesado en el plan ${plan} de RoRoStreaming`;
+        const whatsappNumber = '593999999999'; // Cambiar por tu número
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        
+        window.open(whatsappUrl, '_blank');
+    });
+});
+
+// ========================================
+// FAQ ACCORDION
+// ========================================
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+        // Toggle active class
+        const isActive = item.classList.contains('active');
+        
+        // Close all FAQ items
+        faqItems.forEach(faq => faq.classList.remove('active'));
+        
+        // Open clicked item if it wasn't active
+        if (!isActive) {
+            item.classList.add('active');
+        }
     });
 });
 
@@ -109,50 +142,84 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observar elementos para animaciones
-document.querySelectorAll('.video-card, .pricing-card, .testimonial-card').forEach(el => {
+document.querySelectorAll('.service-card, .benefit-card, .pricing-card, .testimonial-card, .contact-card').forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
+    el.style.transform = 'translateY(40px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
 
 // ========================================
-// RANDOM GRADIENT COLORS FOR VIDEO THUMBNAILS
+// CONTACT FORM HANDLING (PLACEHOLDER)
 // ========================================
-const gradients = [
-    'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-    'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-    'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-    'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
-    'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-    'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)'
-];
-
-const thumbnails = document.querySelectorAll('.video-thumbnail');
-thumbnails.forEach(thumbnail => {
-    const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
-    thumbnail.style.background = randomGradient;
-});
-
-// También aplicar al hero
-const heroCard = document.querySelector('.video-card-hero');
-if (heroCard) {
-    const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
-    heroCard.style.background = randomGradient;
+function showContactMessage(serviceName) {
+    const message = `Hola! Estoy interesado en ${serviceName} de RoRoStreaming`;
+    const whatsappNumber = '593999999999'; // Cambiar por tu número real
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    
+    window.open(whatsappUrl, '_blank');
 }
 
 // ========================================
-// TESTIMONIAL CAROUSEL (OPCIONAL)
+// COUNTER ANIMATION FOR STATS (OPCIONAL)
 // ========================================
-let currentTestimonial = 0;
-const testimonials = document.querySelectorAll('.testimonial-card');
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    
+    const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(start);
+        }
+    }, 16);
+}
 
-function rotateTestimonials() {
-    // Esta función puede ser expandida para crear un carrusel
-    // Por ahora solo es un placeholder
-    console.log('Testimonial rotation');
+// ========================================
+// FORM VALIDATION (Para futuro formulario de contacto)
+// ========================================
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function validatePhone(phone) {
+    const re = /^[\d\s\-\+\(\)]+$/;
+    return re.test(phone) && phone.length >= 10;
+}
+
+// ========================================
+// LOCAL STORAGE FOR USER PREFERENCES
+// ========================================
+function saveUserPreference(key, value) {
+    try {
+        localStorage.setItem(key, JSON.stringify(value));
+    } catch (e) {
+        console.log('No se pudo guardar en localStorage', e);
+    }
+}
+
+function getUserPreference(key) {
+    try {
+        const item = localStorage.getItem(key);
+        return item ? JSON.parse(item) : null;
+    } catch (e) {
+        console.log('No se pudo leer localStorage', e);
+        return null;
+    }
+}
+
+// ========================================
+// CURRENCY FORMATTER
+// ========================================
+function formatPrice(price) {
+    return new Intl.NumberFormat('es-EC', {
+        style: 'currency',
+        currency: 'USD'
+    }).format(price);
 }
 
 // ========================================
@@ -170,57 +237,53 @@ window.addEventListener('load', () => {
 // DYNAMIC YEAR IN FOOTER
 // ========================================
 const footerYear = document.querySelector('.footer-bottom p');
-if (footerYear) {
+if (footerYear && footerYear.textContent.includes('2024')) {
     const currentYear = new Date().getFullYear();
-    footerYear.textContent = `© ${currentYear} StreamFlix. Todos los derechos reservados.`;
+    footerYear.textContent = `© ${currentYear} RoRoStreaming. Todos los derechos reservados.`;
 }
 
 // ========================================
-// VIDEO PLAYER PLACEHOLDER (Para expandir)
+// PLATFORM BADGES INTERACTION
 // ========================================
-function openVideoPlayer(videoId) {
-    // Aquí puedes agregar la lógica para abrir un reproductor de video
-    console.log(`Opening video player for: ${videoId}`);
-    
-    // Ejemplo: crear un modal con iframe de YouTube
-    // const modal = document.createElement('div');
-    // modal.innerHTML = `
-    //     <div class="video-modal">
-    //         <iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>
-    //     </div>
-    // `;
-    // document.body.appendChild(modal);
-}
+const platformBadges = document.querySelectorAll('.platform-badge');
+
+platformBadges.forEach(badge => {
+    badge.addEventListener('click', function() {
+        const platform = this.textContent;
+        const message = `Hola! Quiero información sobre cuentas de ${platform}`;
+        const whatsappNumber = '593999999999';
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+        
+        window.open(whatsappUrl, '_blank');
+    });
+});
 
 // ========================================
-// FORM VALIDATION (Para expandir)
+// TESTIMONIALS AUTO-ROTATE (OPCIONAL)
 // ========================================
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
+let currentTestimonial = 0;
+const testimonials = document.querySelectorAll('.testimonial-card');
+
+function rotateTestimonials() {
+    // Función opcional para rotar testimonios automáticamente
+    if (testimonials.length > 0) {
+        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        // Aquí puedes agregar lógica de animación
+    }
 }
 
-// ========================================
-// LOCAL STORAGE FOR USER PREFERENCES
-// ========================================
-function saveUserPreference(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-}
-
-function getUserPreference(key) {
-    const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) : null;
-}
+// Descomentar para activar rotación automática cada 5 segundos
+// setInterval(rotateTestimonials, 5000);
 
 // ========================================
 // CONSOLE LOG WITH STYLE
 // ========================================
 console.log(
-    '%c🎬 StreamFlix ', 
-    'color: #E50914; font-size: 20px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);'
+    '%c🎬 RoRoStreaming ', 
+    'color: #E50914; font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);'
 );
 console.log(
-    '%c¡Bienvenido a StreamFlix! Tu plataforma de streaming favorita.', 
+    '%c✨ Las mejores cuentas premium de streaming', 
     'color: #999; font-size: 14px;'
 );
 
@@ -239,10 +302,151 @@ function debounce(func, wait) {
     };
 }
 
-// Ejemplo de uso con resize
+// ========================================
+// WINDOW RESIZE HANDLER
+// ========================================
 const handleResize = debounce(() => {
-    console.log('Window resized!');
-    // Aquí puedes agregar lógica para ajustar elementos en resize
+    // Ajustar elementos en resize si es necesario
+    const width = window.innerWidth;
+    
+    if (width < 768) {
+        // Lógica para móvil
+    } else {
+        // Lógica para desktop
+    }
 }, 250);
 
 window.addEventListener('resize', handleResize);
+
+// ========================================
+// SCROLL TO TOP BUTTON (OPCIONAL)
+// ========================================
+function createScrollToTopButton() {
+    const button = document.createElement('button');
+    button.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    button.className = 'scroll-to-top';
+    button.style.cssText = `
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 999;
+        display: none;
+    `;
+    
+    button.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 500) {
+            button.style.display = 'flex';
+            button.style.alignItems = 'center';
+            button.style.justifyContent = 'center';
+            button.style.opacity = '1';
+        } else {
+            button.style.opacity = '0';
+            setTimeout(() => {
+                button.style.display = 'none';
+            }, 300);
+        }
+    });
+    
+    document.body.appendChild(button);
+}
+
+// Descomentar para activar botón scroll to top
+// createScrollToTopButton();
+
+// ========================================
+// COPY TO CLIPBOARD (Para códigos de descuento)
+// ========================================
+function copyToClipboard(text) {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+            showNotification('¡Código copiado!');
+        });
+    } else {
+        // Fallback para navegadores antiguos
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showNotification('¡Código copiado!');
+    }
+}
+
+// ========================================
+// NOTIFICATION SYSTEM
+// ========================================
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 30px;
+        background: ${type === 'success' ? '#4ade80' : '#ef4444'};
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        z-index: 10000;
+        animation: slideIn 0.3s ease;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+// ========================================
+// ANALYTICS TRACKING (Placeholder)
+// ========================================
+function trackEvent(eventName, eventData) {
+    console.log('Event tracked:', eventName, eventData);
+    
+    // Aquí puedes agregar Google Analytics o cualquier otra herramienta
+    // gtag('event', eventName, eventData);
+}
+
+// Trackear clics en botones importantes
+document.querySelectorAll('.service-button, .pricing-button').forEach(button => {
+    button.addEventListener('click', () => {
+        trackEvent('button_click', {
+            button_text: button.textContent,
+            page_location: window.location.href
+        });
+    });
+});
+
+// ========================================
+// INITIALIZE APP
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('✅ RoRoStreaming cargado correctamente');
+    
+    // Aquí puedes agregar inicializaciones adicionales
+    // Por ejemplo, cargar datos de una API
+    // fetchServices();
+    // loadTestimonials();
+    // etc.
+});
