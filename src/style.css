@@ -806,6 +806,120 @@ body {
     box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
 }
 
+.contact-form-container {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.contact-form-card {
+    background: linear-gradient(145deg, #1e1e2e 0%, #2a2a3e 100%);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.contact-form-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 10px 40px rgba(229, 9, 20, 0.2);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: #d1d1d1;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: #666;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(229, 9, 20, 0.05);
+    box-shadow: 0 0 15px rgba(229, 9, 20, 0.2);
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23999' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.5rem;
+}
+
+.form-group select option {
+    background: #1e1e2e;
+    color: white;
+    padding: 1rem;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 1.2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-submit:hover {
+    background: #f40612;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(229, 9, 20, 0.5);
+}
+
+.btn-submit:disabled {
+    background: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form-status {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 600;
+    min-height: 1.5rem;
+}
+
+.form-status.success {
+    color: #4ade80;
+}
+
+.form-status.error {
+    color: #ef4444;
+}
+
+
 /* ========================================
    FAQ SECTION
 ======================================== */
@@ -1071,4 +1185,89 @@ body {
     .platform-badge {
         text-align: center;
     }
+}
+
+/* ========================================
+   SECCIÓN DE PEDIDOS (Mostrar datos de Firebase)
+======================================== */
+.pedidos-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pedidos-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.pedidos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.pedido-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border-left: 4px solid var(--primary);
+    transition: all 0.3s ease;
+}
+
+.pedido-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.pedido-card h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pedido-card h4 i {
+    color: var(--primary);
+}
+
+.pedido-card p {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.pedido-card .pedido-plataforma {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.pedido-card .pedido-fecha {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.75rem;
+}
+
+.loading-text {
+    text-align: center;
+    color: #666;
+    grid-column: 1 / -1;
+}
+
+.no-pedidos {
+    text-align: center;
+    color: #666;
+    grid-column: 1 / -1;
+    padding: 2rem;
 }

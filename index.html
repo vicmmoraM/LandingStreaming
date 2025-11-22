@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RoRoStreaming - Cuentas Premium de Netflix, Disney+, Amazon Prime y más</title>
-    
+
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css">
-    
+
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <!-- Tu CSS personalizado -->
     <link rel="stylesheet" href="src/style.css">
 </head>
+
 <body class="overflow-x-hidden antialiased">
     <!-- Header Section -->
     <header class="relative z-50 w-full h-24 header-bg">
@@ -45,14 +47,16 @@
 
     <!-- HERO SECTION -->
     <div class="hero-section">
-        <div class="container flex flex-col items-center justify-between h-full max-w-6xl px-8 mx-auto lg:flex-row xl:px-0">
+        <div
+            class="container flex flex-col items-center justify-between h-full max-w-6xl px-8 mx-auto lg:flex-row xl:px-0">
             <div class="hero-content">
                 <h1 class="hero-title">Cuentas Premium de Streaming</h1>
-                <p class="hero-subtitle">Acceso garantizado a Netflix, Disney+, Amazon Prime Video, HBO Max y más. Las mejores plataformas al mejor precio.</p>
+                <p class="hero-subtitle">Acceso garantizado a Netflix, Disney+, Amazon Prime Video, HBO Max y más. Las
+                    mejores plataformas al mejor precio.</p>
                 <a href="#planes" class="btn-hero">
                     <i class="fas fa-shopping-cart mr-2"></i> Ver Planes Disponibles
                 </a>
-                
+
                 <!-- Plataformas disponibles -->
                 <div class="platforms-section">
                     <p class="platforms-title">Plataformas Disponibles:</p>
@@ -65,10 +69,11 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="hero-image">
                 <div class="device-mockup">
-                    <img src="https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg" alt="Streaming en dispositivos" class="mockup-img">
+                    <img src="https://cdn.pixabay.com/photo/2018/05/08/08/44/artificial-intelligence-3382507_1280.jpg"
+                        alt="Streaming en dispositivos" class="mockup-img">
                 </div>
             </div>
         </div>
@@ -81,7 +86,7 @@
                 <i class="fas fa-star mr-3"></i>Nuestros Servicios
             </h2>
             <h3 class="section-subtitle text-center">Cuentas premium para las mejores plataformas de streaming</h3>
-            
+
             <div class="services-grid">
                 <!-- Netflix -->
                 <div class="service-card netflix-card">
@@ -313,7 +318,8 @@
             </div>
 
             <div class="pricing-note">
-                <p><i class="fas fa-info-circle"></i> Los precios varían según la plataforma. Combos disponibles con descuentos adicionales.</p>
+                <p><i class="fas fa-info-circle"></i> Los precios varían según la plataforma. Combos disponibles con
+                    descuentos adicionales.</p>
             </div>
         </div>
     </div>
@@ -325,7 +331,7 @@
                 <i class="fas fa-comments mr-3"></i>Lo que dicen nuestros clientes
             </h2>
             <h3 class="section-subtitle text-center">Miles de clientes satisfechos con nuestro servicio</h3>
-            
+
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-stars">
@@ -335,7 +341,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Excelente servicio! Compré Netflix y funciona perfecto. La entrega fue súper rápida y el soporte muy amable."</p>
+                    <p class="testimonial-text">"Excelente servicio! Compré Netflix y funciona perfecto. La entrega fue
+                        súper rápida y el soporte muy amable."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">MG</div>
                         <div>
@@ -353,7 +360,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Los mejores precios del mercado. Llevo comprando combos hace 1 año y nunca he tenido problemas. 100% recomendado."</p>
+                    <p class="testimonial-text">"Los mejores precios del mercado. Llevo comprando combos hace 1 año y
+                        nunca he tenido problemas. 100% recomendado."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">JR</div>
                         <div>
@@ -371,7 +379,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Compré el combo de 6 meses y estoy muy feliz. Ahorro muchísimo y el servicio es impecable. Gracias RoRoStreaming!"</p>
+                    <p class="testimonial-text">"Compré el combo de 6 meses y estoy muy feliz. Ahorro muchísimo y el
+                        servicio es impecable. Gracias RoRoStreaming!"</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">AP</div>
                         <div>
@@ -390,9 +399,76 @@
             <h2 class="section-title text-center">
                 <i class="fas fa-envelope mr-3"></i>Contáctanos
             </h2>
-            <h3 class="section-subtitle text-center">¿Tienes alguna pregunta? Estamos aquí para ayudarte</h3>
+            <h3 class="section-subtitle text-center">¿Tienes alguna pregunta? Completa el formulario y te contactamos
+            </h3>
 
-            <div class="contact-grid">
+            <!-- FORMULARIO DE CONTACTO -->
+            <div class="contact-form-container">
+                <div class="contact-form-card">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" placeholder="Ingresa tu nombre" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" placeholder="tu@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono / WhatsApp</label>
+                        <input type="tel" id="telefono" placeholder="+593 99 999 9999" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plataforma">Plataforma de Interés</label>
+                        <select id="plataforma" required>
+                            <option value="">Selecciona una plataforma</option>
+                            <option value="Netflix">Netflix Premium</option>
+                            <option value="Disney+">Disney+ Premium</option>
+                            <option value="Amazon Prime">Amazon Prime Video</option>
+                            <option value="HBO Max">HBO Max</option>
+                            <option value="Spotify">Spotify Premium</option>
+                            <option value="Combo">Combo Premium (Varios)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="plan">Duración del Plan</label>
+                        <select id="plan" required>
+                            <option value="">Selecciona duración</option>
+                            <option value="1 Mes">1 Mes - $5.99</option>
+                            <option value="3 Meses">3 Meses - $14.99</option>
+                            <option value="6 Meses">6 Meses - $24.99</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje (Opcional)</label>
+                        <input type="text" id="mensaje" placeholder="¿Alguna pregunta adicional?">
+                    </div>
+
+                    <button type="button" id="btn-enviar" class="btn-submit">
+                        <i class="fas fa-paper-plane mr-2"></i> Enviar Solicitud
+                    </button>
+
+                    <p id="form-status" class="form-status"></p>
+                </div>
+            </div>
+
+            <!-- Sección para mostrar los pedidos guardados -->
+            <div class="pedidos-section">
+                <h3 class="pedidos-title">
+                    <i class="fas fa-list mr-2"></i>Últimos Pedidos Registrados
+                </h3>
+                <div id="pedidos-container" class="pedidos-grid">
+                    <!-- Aquí se cargarán los pedidos desde Firebase -->
+                    <p class="loading-text">Cargando pedidos...</p>
+                </div>
+            </div>
+
+            <!-- Tarjetas de contacto directo -->
+            <div class="contact-grid" style="margin-top: 3rem;">
                 <div class="contact-card">
                     <i class="fab fa-whatsapp"></i>
                     <h4>WhatsApp</h4>
@@ -437,7 +513,8 @@
                         <h4>¿Las cuentas son originales?</h4>
                     </div>
                     <div class="faq-answer">
-                        <p>Sí, todas nuestras cuentas son 100% originales y verificadas. Funcionan en todos los dispositivos compatibles con cada plataforma.</p>
+                        <p>Sí, todas nuestras cuentas son 100% originales y verificadas. Funcionan en todos los
+                            dispositivos compatibles con cada plataforma.</p>
                     </div>
                 </div>
 
@@ -447,7 +524,8 @@
                         <h4>¿Cuánto tiempo tarda la entrega?</h4>
                     </div>
                     <div class="faq-answer">
-                        <p>La entrega es inmediata. Una vez confirmado el pago, recibirás tus credenciales en menos de 5 minutos por email o WhatsApp.</p>
+                        <p>La entrega es inmediata. Una vez confirmado el pago, recibirás tus credenciales en menos de 5
+                            minutos por email o WhatsApp.</p>
                     </div>
                 </div>
 
@@ -457,7 +535,8 @@
                         <h4>¿Qué métodos de pago aceptan?</h4>
                     </div>
                     <div class="faq-answer">
-                        <p>Aceptamos transferencias bancarias, PayPal, tarjetas de crédito/débito y pagos en efectivo en puntos autorizados.</p>
+                        <p>Aceptamos transferencias bancarias, PayPal, tarjetas de crédito/débito y pagos en efectivo en
+                            puntos autorizados.</p>
                     </div>
                 </div>
 
@@ -467,7 +546,8 @@
                         <h4>¿Ofrecen garantía?</h4>
                     </div>
                     <div class="faq-answer">
-                        <p>Sí, ofrecemos garantía en todas nuestras cuentas. Si tienes algún problema, reemplazamos la cuenta sin costo adicional.</p>
+                        <p>Sí, ofrecemos garantía en todas nuestras cuentas. Si tienes algún problema, reemplazamos la
+                            cuenta sin costo adicional.</p>
                     </div>
                 </div>
 
@@ -477,7 +557,8 @@
                         <h4>¿Puedo compartir la cuenta?</h4>
                     </div>
                     <div class="faq-answer">
-                        <p>Depende del plan. Las cuentas Premium permiten múltiples pantallas según lo especificado en cada servicio.</p>
+                        <p>Depende del plan. Las cuentas Premium permiten múltiples pantallas según lo especificado en
+                            cada servicio.</p>
                     </div>
                 </div>
             </div>
@@ -501,7 +582,7 @@
                         <a href="#"><i class="fab fa-telegram"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <div>
                         <h4>Servicios</h4>
@@ -529,7 +610,8 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 RoRoStreaming. Todos los derechos reservados.</p>
-                <p class="footer-disclaimer">Este sitio no está afiliado con Netflix, Disney+, Amazon Prime Video, HBO Max o Spotify. Son marcas registradas de sus respectivos propietarios.</p>
+                <p class="footer-disclaimer">Este sitio no está afiliado con Netflix, Disney+, Amazon Prime Video, HBO
+                    Max o Spotify. Son marcas registradas de sus respectivos propietarios.</p>
             </div>
         </div>
     </footer>
@@ -542,4 +624,5 @@
     <!-- Tu JavaScript -->
     <script src="src/main.js"></script>
 </body>
+
 </html>

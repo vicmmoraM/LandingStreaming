@@ -450,3 +450,198 @@ document.addEventListener('DOMContentLoaded', () => {
     // loadTestimonials();
     // etc.
 });
+
+// FIREBASE REALTIME DATABASE - POST & GET
+// Agregar esto al final de tu main.js
+// ========================================
+
+// URL de tu Firebase Realtime Database
+const FIREBASE_URL = 'https://landingpage-4c0c1-default-rtdb.firebaseio.com';
+
+// ========================================
+// FUNCIÓN POST - Enviar datos a Firebase
+// ========================================
+async function enviarPedido(datos) {
+    try {
+        const response = await fetch(`${FIREBASE_URL}/pedidos.json`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datos)
+        });
+
+        if (!response.ok) {
+            throw new Error('Error al enviar el pedido');
+        }
+
+        const result = await response.json();
+        console.log('✅ Pedido guardado con ID:', result.name);
+        return result;
+
+    } catch (error) {
+        console.error('❌ Error:', error);
+        throw error;
+    }
+}
+
+// ========================================
+// FUNCIÓN GET - Obtener pedidos de Firebase
+// ========================================
+async function obtenerPedidos() {
+    try {
+        const response = await fetch(`${FIREBASE_URL}/pedidos.json`, {
+            method: 'GET'
+        });
+
+        if (!response.ok) {
+            throw new Error('Error al obtener pedidos');
+        }
+
+        const data = await response.json();
+        console.log('📦 Pedidos obtenidos:', data);
+        return data;
+
+    } catch (error) {
+        console.error('❌ Error:', error);
+        throw error;
+    }
+}
+
+// ========================================
+// MOSTRAR PEDIDOS EN EL HTML
+// ========================================
+function mostrarPedidos(pedidos) {
+    const container = document.getElementById('pedidos-container');
+    
+    if (!container) return;
+
+    // Si no hay pedidos
+    if (!pedidos || Object.keys(pedidos).length === 0) {
+        container.innerHTML = '<p class="no-pedidos">No hay pedidos registrados aún.</p>';
+        return;
+    }
+
+    // Convertir objeto a array y ordenar por fecha (más recientes primero)
+    const pedidosArray = Object.entries(pedidos).map(([id, pedido]) => ({
+        id,
+        ...pedido
+    })).reverse();
+
+    // Mostrar solo los últimos 6 pedidos
+    const ultimosPedidos = pedidosArray.slice(0, 6);
+
+    container.innerHTML = ultimosPedidos.map(pedido => `
+        <div class="pedido-card">
+            <h4><i class="fas fa-user"></i> ${pedido.nombre}</h4>
+            <p><i class="fas fa-envelope"></i> ${pedido.email}</p>
+            <p><i class="fas fa-phone"></i> ${pedido.telefono}</p>
+            <span class="pedido-plataforma">${pedido.plataforma} - ${pedido.plan}</span>
+            <p class="pedido-fecha"><i class="fas fa-clock"></i> ${pedido.fecha}</p>
+        </div>
+    `).join('');
+}
+
+// ========================================
+// MANEJAR ENVÍO DEL FORMULARIO
+// ========================================
+function inicializarFormulario() {
+    const btnEnviar = document.getElementById('btn-enviar');
+    const formStatus = document.getElementById('form-status');
+
+    if (!btnEnviar) return;
+
+    btnEnviar.addEventListener('click', async function() {
+        // Obtener valores del formulario
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+        const plataforma = document.getElementById('plataforma').value;
+        const plan = document.getElementById('plan').value;
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        // Validar campos requeridos
+        if (!nombre || !email || !telefono || !plataforma || !plan) {
+            formStatus.textContent = '⚠️ Por favor completa todos los campos requeridos';
+            formStatus.className = 'form-status error';
+            return;
+        }
+
+        // Validar email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            formStatus.textContent = '⚠️ Por favor ingresa un email válido';
+            formStatus.className = 'form-status error';
+            return;
+        }
+
+        // Deshabilitar botón mientras se envía
+        btnEnviar.disabled = true;
+        btnEnviar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        formStatus.textContent = '';
+
+        // Crear objeto con los datos
+        const pedido = {
+            nombre,
+            email,
+            telefono,
+            plataforma,
+            plan,
+            mensaje: mensaje || 'Sin mensaje',
+            fecha: new Date().toLocaleString('es-EC')
+        };
+
+        try {
+            // Enviar a Firebase (POST)
+            await enviarPedido(pedido);
+
+            // Mostrar éxito
+            formStatus.textContent = '✅ ¡Pedido enviado correctamente! Te contactaremos pronto.';
+            formStatus.className = 'form-status success';
+
+            // Limpiar formulario
+            document.getElementById('nombre').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('telefono').value = '';
+            document.getElementById('plataforma').value = '';
+            document.getElementById('plan').value = '';
+            document.getElementById('mensaje').value = '';
+
+            // Recargar pedidos (GET)
+            const pedidosActualizados = await obtenerPedidos();
+            mostrarPedidos(pedidosActualizados);
+
+        } catch (error) {
+            formStatus.textContent = '❌ Error al enviar. Intenta nuevamente.';
+            formStatus.className = 'form-status error';
+        } finally {
+            // Rehabilitar botón
+            btnEnviar.disabled = false;
+            btnEnviar.innerHTML = '<i class="fas fa-paper-plane mr-2"></i> Enviar Solicitud';
+        }
+    });
+}
+
+// ========================================
+// CARGAR PEDIDOS AL INICIAR LA PÁGINA
+// ========================================
+async function cargarPedidosIniciales() {
+    try {
+        const pedidos = await obtenerPedidos();
+        mostrarPedidos(pedidos);
+    } catch (error) {
+        const container = document.getElementById('pedidos-container');
+        if (container) {
+            container.innerHTML = '<p class="no-pedidos">Error al cargar pedidos.</p>';
+        }
+    }
+}
+
+// ========================================
+// INICIALIZAR TODO CUANDO CARGUE LA PÁGINA
+// ========================================
+document.addEventListener('DOMContentLoaded', () => {
+    inicializarFormulario();
+    cargarPedidosIniciales();
+    console.log('🔥 Firebase conectado correctamente');
+});
