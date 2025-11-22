@@ -7,6 +7,8 @@
 // ========================================
 const mobileMenuBtn = document.getElementById('nav-mobile-btn');
 const nav = document.getElementById('nav');
+import { guardarPedido } from './firebase.js';
+guardarPedido("Victor", "Plan Premium");
 
 if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', function() {
